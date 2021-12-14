@@ -1,0 +1,66 @@
+version: '3'
+services:
+  green-frame-db:
+    container_name: green-frame-db
+    image: postgis/postgis:12-master
+    ports:
+      - 8054:5432
+    volumes:
+      - ./green-frame-cms/db:/var/lib/postgresql/data
+      # networks:
+      # - green-frame
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: '12345'
+      POSTGRES_DB: 'directus'
+      # green-frame-cms:
+      #   container_name: green-frame-cms
+      #   image: directus/directus:latest
+      #   ports:
+      #     - 8055:8055
+      #   volumes:
+      #     - ./green-frame-cms/uploads:/directus/uploads
+      #     - ./green-frame-cms/extensions:/directus/extensions
+      #   networks:
+      #     - green-frame
+      #   depends_on:
+      #     - green-frame-db
+      #   environment:
+      #     KEY: '255d861b-5ea1-5996-9aa3-922530ec40b1'
+      #     SECRET: '6116487b-cda1-52c2-b5b5-c8022c45e263'
+
+      #     DB_CLIENT: 'pg'
+      #     DB_HOST: 'green-frame-db'
+      #     DB_PORT: '5432'
+      #     DB_DATABASE: 'directus'
+      #     DB_USER: 'postgres'
+      #     DB_PASSWORD: '12345'
+
+      # ADMIN_EMAIL: 'admin@example.com'
+      # ADMIN_PASSWORD: 'd1r3ctu5'
+      # Make sure to set this in production
+      # (see https://docs.directus.io/reference/environment-variables/#general)
+      # PUBLIC_URL: 'https://directus.example.com'
+
+      # gatsby:
+      #   build:
+      #     context: ./my-gatsby-site
+      #     dockerfile: Dockerfile_gatsby
+      #   entrypoint: gatsby
+      #   volumes:
+      #     - .:/app
+
+      # gatsby-develop:
+      #   build:
+      #     context: ./my-gatsby-site
+      #     dockerfile: Dockerfile_gatsby
+      #   command: gatsby develop -H 0.0.0.0
+      #   networks:
+      #     - green-frame
+      #   ports:
+      #     - "8000:8000"
+      # volumes:
+      #   - ./my-gatsby-site:/app
+
+      # networks:
+      #   green-frame: null
