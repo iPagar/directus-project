@@ -3,38 +3,37 @@ services:
   green-frame-db:
     container_name: green-frame-db
     image: postgis/postgis:12-master
-    ports:
-      - 8054:5432
     volumes:
       - ./green-frame-cms/db:/var/lib/postgresql/data
-      # networks:
-      # - green-frame
+    networks:
+      - green-frame
     environment:
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: '12345'
       POSTGRES_DB: 'directus'
-      # green-frame-cms:
-      #   container_name: green-frame-cms
-      #   image: directus/directus:latest
-      #   ports:
-      #     - 8055:8055
-      #   volumes:
-      #     - ./green-frame-cms/uploads:/directus/uploads
-      #     - ./green-frame-cms/extensions:/directus/extensions
-      #   networks:
-      #     - green-frame
-      #   depends_on:
-      #     - green-frame-db
-      #   environment:
-      #     KEY: '255d861b-5ea1-5996-9aa3-922530ec40b1'
-      #     SECRET: '6116487b-cda1-52c2-b5b5-c8022c45e263'
 
-      #     DB_CLIENT: 'pg'
-      #     DB_HOST: 'green-frame-db'
-      #     DB_PORT: '5432'
-      #     DB_DATABASE: 'directus'
-      #     DB_USER: 'postgres'
-      #     DB_PASSWORD: '12345'
+  green-frame-cms:
+    container_name: green-frame-cms
+    image: directus/directus:latest
+    ports:
+      - 8055:8055
+    volumes:
+      - ./green-frame-cms/uploads:/directus/uploads
+      - ./green-frame-cms/extensions:/directus/extensions
+    networks:
+      - green-frame
+    depends_on:
+      - green-frame-db
+    environment:
+      KEY: '255d861b-5ea1-5996-9aa3-922530ec40b1'
+      SECRET: '6116487b-cda1-52c2-b5b5-c8022c45e263'
+
+      DB_CLIENT: 'pg'
+      DB_HOST: 'green-frame-db'
+      DB_PORT: '5432'
+      DB_DATABASE: 'directus'
+      DB_USER: 'postgres'
+      DB_PASSWORD: '12345'
 
       # ADMIN_EMAIL: 'admin@example.com'
       # ADMIN_PASSWORD: 'd1r3ctu5'
@@ -62,5 +61,5 @@ services:
       # volumes:
       #   - ./my-gatsby-site:/app
 
-      # networks:
-      #   green-frame: null
+networks:
+  green-frame: null
