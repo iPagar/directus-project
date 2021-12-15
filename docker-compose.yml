@@ -12,6 +12,22 @@ services:
       POSTGRES_PASSWORD: '12345'
       POSTGRES_DB: 'directus'
 
+  gatsby-develop:
+    build:
+      context: ./my-gatsby-site
+      dockerfile: Dockerfile_gatsby
+    command: npm run develop
+    networks:
+      - green-frame
+    ports:
+      - "8000:8000"
+    depends_on:
+      - green-frame-db
+      - green-frame-cms
+    volumes:
+      - ./my-gatsby-site:/app
+      - /app/node_modules
+
   green-frame-cms:
     container_name: green-frame-cms
     image: directus/directus:latest
@@ -41,25 +57,24 @@ services:
       # (see https://docs.directus.io/reference/environment-variables/#general)
       # PUBLIC_URL: 'https://directus.example.com'
 
-      # gatsby:
-      #   build:
-      #     context: ./my-gatsby-site
-      #     dockerfile: Dockerfile_gatsby
-      #   entrypoint: gatsby
-      #   volumes:
-      #     - .:/app
-
-      # gatsby-develop:
-      #   build:
-      #     context: ./my-gatsby-site
-      #     dockerfile: Dockerfile_gatsby
-      #   command: gatsby develop -H 0.0.0.0
-      #   networks:
-      #     - green-frame
-      #   ports:
-      #     - "8000:8000"
-      # volumes:
-      #   - ./my-gatsby-site:/app
+  gatsby-prod:
+    container_name: gatsby-prod
+    build:
+      context: ./prod
+      dockerfile: Dockerfile_prod
+    command: npm start
+    networks:
+      - green-frame
+    volumes:
+      - ./prod:/app
+      - /app/prod-site/node_modules
+    ports:
+      - "3000:3000"
 
 networks:
-  green-frame: null
+  green-frame:
+    driver: bridge
+
+  
+  
+ 

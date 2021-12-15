@@ -1,11 +1,23 @@
-const util = require("util");
-const exec = util.promisify(require("child_process").exec);
+const http = require("http");
 
 module.exports = function registerEndpoint(router) {
   router.get("/deploy-production", async (req, res) => {
-    await exec(
-      "cd my-gatsby-site && gatsby build && rm -rf /home/bob/www/my-gatsby-site && cp -r ./public /home/bob/www/my-gatsby-site"
-    );
-    res.status(200).end();
+    http
+      .get("http://gatsby-prod:3000/", (resp) => {
+        // A chunk of data has been received.
+        resp.on("data", (chunk) => {
+          data += chunk;
+        });
+
+        // The whole response has been received. Print out the result.
+        resp.on("end", () => {
+          console.log(JSON.parse(data).explanation);
+          res.status(200).end();
+        });
+      })
+      .on("error", (err) => {
+        console.log("Error: " + err.message);
+        res.status(500).end();
+      });
   });
 };

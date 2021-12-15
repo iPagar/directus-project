@@ -3,15 +3,15 @@
 # FROM gatsbyjs/gatsby
 # COPY --from=my-gatsby-site/build /my-gatsby-site/app/public /pub
 
-FROM node:alpine
-RUN npm install --global gatsby-cli
+FROM node:16-alpine
+# RUN npm install --global gatsby-cli
 
 WORKDIR /app
 # # COPY the package.json file, update any deps and install them
 COPY package.json .
 RUN npm install --legacy-peer-deps
 
-# # copy the whole source folder(the dir is relative to the Dockerfile
+# # copy the whole source folder (the dir is relative to the Dockerfile)
 COPY . .
 
 # FROM gatsbyjs/gatsby:onbuild as build

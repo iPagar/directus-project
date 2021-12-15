@@ -1,0 +1,221 @@
+.Quote {
+    display: flex;
+    padding: var(--padding-size);
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    padding-top: 250px;
+    background-color: white;
+}
+
+.Quote-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    font-size: large;
+}
+
+.Quote-background {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--green-color);
+}
+
+.Quote-third-quote-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+}
+
+.Quote-third-quote-img {
+    width: 100%;
+    max-width: 600px;
+    padding-top: 75px
+}
+
+.Quote-third-quote-title {
+    font-size: x-large;
+    max-width: 500px;
+    padding: var(--padding-size);
+    margin-left: -150px
+}
+
+.Quote-img-schndr-container {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    padding: var(--padding-size);
+    top: -10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+    right: 0;
+}
+
+.Quote-img-schndr {
+    width: 100%
+}
+
+.Quote-person-container {
+    display: flex;
+    align-items: center;
+}
+
+.Quote-person-content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-size);
+    flex-basis: 50%;
+
+}
+
+.Quote-person-image-container {
+    max-width: 300px;
+    min-width: 200px;
+    flex-basis: 50%;
+    padding: var(--padding-size);
+}
+
+.Quote-person-image {
+    border-radius: 50%;
+    width: 100%;
+}
+
+.Quote-first-quote {
+    max-width: 380px;
+    padding: calc(var(--padding-size) * 2) calc(var(--padding-size) * 4) !important;
+}
+
+.Quote-second-quote {
+    max-width: 500px;
+    margin-left: 100px;
+    padding: calc(var(--padding-size) * 2) calc(var(--padding-size) * 2) !important;
+
+}
+
+.Quote-background-wave-container {
+    position: absolute;
+    bottom: 300px;
+    overflow: hidden;
+    width: 100%;
+    max-height: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Quote-background-wave {
+    height: 100%;
+}
+
+.Quote-img-container {
+    display: flex;
+    z-index: 1;
+    margin-bottom: -250px;
+    margin-top: var(--padding-size);
+}
+
+.Quote-img {
+    width: 100%;
+    margin-top: -30%;
+}
+
+.Quote-img-park {
+    width: 100%
+}
+
+.Quote-container {
+    position: relative;
+    padding: var(--padding-size);
+    border: solid var(--gray-color)4px;
+    border-radius: 40px;
+    background-color: white;
+}
+
+.Quote-content-text {
+    background-color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.Quote-top:after {
+    content: "";
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    background-color: white;
+    border-top: 4px solid var(--gray-color);
+    border-right: 4px solid var(--gray-color);
+    left: 10%;
+    bottom: -26px;
+    transform: rotate(90deg) skew(-45deg);
+}
+
+.Quote-bottom:after {
+    content: "";
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    background-color: white;
+    border-top: 4px solid var(--gray-color);
+    border-right: 4px solid var(--gray-color);
+    left: 30%;
+    top: -26px;
+    transform: rotate(-100deg) skew(-50deg);
+}
+
+@media screen and (max-width:1100px) {
+    .Quote-img {
+        margin-top: 0
+    }
+}
+
+@media screen and (max-width:800px) {
+    .Quote-third-quote-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .Quote-third-quote-img {
+        padding-top: 0
+    }
+
+    .Quote-third-quote-title {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .Quote-img-schndr-container {
+        position: static;
+        margin-top: 0;
+    }
+
+    .Quote-img-schndr {
+        max-width: 250px;
+        width: 100%;
+    }
+
+    .Quote-person-container {
+        justify-content: center;
+    }
+
+    .Quote-second-quote {
+        margin-left: 0;
+    }
+
+    .Quote-bottom:after {
+        left: 40%
+    }
+
+    .Quote-person-image-container {
+        padding: 20px;
+        padding-left: calc(var(--padding-size) * 4)
+    }
+}
