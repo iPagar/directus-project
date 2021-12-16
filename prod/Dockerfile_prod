@@ -1,28 +1,13 @@
-# FROM gatsbyjs/gatsby:onbuild as build
-
-# FROM gatsbyjs/gatsby
-# COPY --from=my-gatsby-site/build /my-gatsby-site/app/public /pub
-
 FROM node:16-alpine
-# RUN npm install --global gatsby-cli
-
-WORKDIR /app
-# # COPY the package.json file, update any deps and install them
-COPY package.json .
-RUN npm install
-
 
 WORKDIR /app/prod-site
-# # COPY the package.json file, update any deps and install them
-COPY ./prod-site/package.json .
+COPY ./prod-site/package.json /app/prod-site
 RUN npm install --legacy-peer-deps
 
-COPY ./prod-site/ .
+COPY ./prod-site/ /app/prod-site
 
 WORKDIR /app
-
-# FROM gatsbyjs/gatsby:onbuild as build
-
-# FROM gatsbyjs/gatsby
-# COPY --from=build /app/public /pub
+COPY ./package.json /app
+RUN npm install
+COPY . /app
 
