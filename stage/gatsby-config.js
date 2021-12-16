@@ -1,7 +1,7 @@
 module.exports = {
-  pathPrefix: `/prod`,
+  pathPrefix: `/stage`,
   siteMetadata: {
-    siteUrl: "https://ipagar.labado.ru",
+    siteUrl: "https://ipagar.labado.ru/stage",
     title: "My Gatsby Site",
   },
   plugins: [

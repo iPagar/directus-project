@@ -1,0 +1,52 @@
+.SendMoney {
+    display: flex;
+}
+
+.SendMoney-title {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.SendMoney-desc {
+    padding: var(--padding-size) 0
+}
+
+.SendMoney-content {
+    max-width: 500px;
+}
+
+.SendMoney-img-conteiner {
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 auto;
+}
+
+.SendMoney-img {
+    width: 100%;
+    object-fit: contain;
+    max-height: 60%;
+}
+
+@media screen and (max-width:800px) {
+    .SendMoney-title {
+        max-width: 70%;
+    }
+
+    .SendMoney-content {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .SendMoney-img-conteiner {
+        max-width: none;
+        max-width: 400px;
+
+    }
+
+    .SendMoney-img {
+        max-height: none
+    }
+}

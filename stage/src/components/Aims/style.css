@@ -1,0 +1,108 @@
+.Aims {
+    padding: var(--padding-size);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.Aims-content {
+    display: flex;
+    max-width: var(--content-width);
+    justify-content: space-between;
+    width: 100%
+}
+
+.Aims-content-list {
+    max-width: 367px;
+    width: fit-content;
+    z-index: 1;
+    margin-top: -250px;
+}
+
+.Aims-item {
+    display: flex;
+    flex-direction: row;
+    padding-top: var(--padding-size);
+    font-size: large;
+}
+
+.Aims-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    padding-bottom: var(--padding-size);
+}
+
+.Aims-item-index {
+    font-size: xx-large;
+    padding-right: calc(var(--padding-size) * 2);
+    color: var(--green-color);
+    font-weight: bold;
+    margin-top: -35%;
+}
+
+
+.Aims-img-images {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.Aims-img-noroot {
+    margin-left: -500px;
+    margin-top: 0%;
+    height: 600px;
+    width: 600px;
+    object-fit: contain;
+}
+
+.Aims-img-noroot-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.Aims-img-park {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* max-width - third-quote-img-width - padding */
+@media screen and (max-width:1100px) {
+    .Aims-content-list {
+        margin-top: 0;
+        max-width: none;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .Aims-content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .Aims-img-images {
+        width: 100vw;
+    }
+
+    .Aims-content-list {
+        z-index: 0;
+    }
+
+    .Aims-img-noroot-container {
+        height: 800px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .Aims-img-noroot {
+        max-width: 100vw;
+        margin-left: -50%;
+        margin-top: 20%;
+    }
+}

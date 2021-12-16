@@ -1,0 +1,76 @@
+.Intro-upncity {
+    position: absolute;
+    top: -300px;
+    right: 0;
+    width: 100vw;
+    max-width: 50vw;
+    object-fit: contain;
+}
+
+.Intro-upncity-container {
+    position: absolute;
+    right: 0;
+    z-index: 0;
+    top: 0;
+}
+
+.Intro-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    position: absolute;
+    top: 96px;
+    left: 0;
+}
+
+.Intro-subtitle {
+    padding-top: 46px;
+    font-weight: bolder;
+}
+
+.Intro-desc {
+    white-space: pre-line;
+}
+
+.Intro {
+    padding: var(--padding-size);
+    font-size: large;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.Intro-content {
+    position: relative;
+    width: var(--start-width);
+    z-index: 1;
+}
+
+.Intro-container {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.Intro-button-container {
+    padding: calc(var(--padding-size) * 10) 0;
+    max-width: 380px;
+}
+
+@media screen and (max-width:800px) {
+    .Intro {
+        display: block;
+        padding-right: var(--padding-size);
+        padding-top: 128px;
+    }
+
+    .Intro-content {
+        max-width: 460px;
+        width: 100%;
+        min-width: 230px;
+        margin: 0 auto;
+    }
+
+    .Intro-upncity {
+        max-width: 50vw;
+    }
+}
